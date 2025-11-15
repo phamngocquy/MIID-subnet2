@@ -540,7 +540,7 @@ def validate_address_region(generated_address: str, seed_address: str) -> bool:
     
     return True
 
-def transliterate_name_with_llm(original_name: str, script: str, model_name: str = "tinyllama:latest") -> str:
+def transliterate_name_with_llm(original_name: str, script: str, model_name: str = "llama3.1:latest") -> str:
     """
     Use LLM to transliterate a non-Latin name to Latin script for phonetic comparison.
     Tries tinyllama first, then falls back to llama3.1:latest.
@@ -553,8 +553,7 @@ def transliterate_name_with_llm(original_name: str, script: str, model_name: str
         The transliterated name in Latin script, or fallback transliteration if all models fail
     """
     llama_models = [
-        "tinyllama:latest",
-        "llama3.1:latest",
+        "llama3.1:latest"
     ]
 
     if model_name in llama_models:
